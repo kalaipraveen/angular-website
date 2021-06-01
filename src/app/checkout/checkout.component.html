@@ -1,0 +1,113 @@
+<div class="container">
+	<div class="row my-2">
+		<div class="col-md-6">
+			<form class="col-12" [formGroup]="form">
+				<div class="form-group row">
+					<label for="firstName" class="col-2 col-form-label">First Name:</label>
+					<div class="col-10">
+						<input class="form-control" type="text" value="" id="firstName" formControlName="firstName">
+						<p class="alert alert-danger"
+						   role="alert"
+						   [hidden]="form.get('firstName').valid || form.get('firstName').pristine">
+							The First Name is required
+						</p>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label for="lastName" class="col-2 col-form-label">
+						Last Name:</label>
+					<div class="col-10">
+						<input class="form-control" type="text" value="" id="lastName" formControlName="lastName">
+						<p class="alert alert-danger"
+						   role="alert"
+						   [hidden]="form.get('lastName').valid || form.get('lastName').pristine">
+							The Last Name is required
+						</p>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label for="email" class="col-2 col-form-label">Email: </label>
+					<div class="col-10">
+						<input class="form-control" type="text" value="" id="email" formControlName="email">
+						<p class="alert alert-danger"
+						   role="alert"
+						   [hidden]="form.get('email').valid || form.get('email').pristine">
+							The Email is required
+						</p>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label for="phone" class="col-2 col-form-label">Phone: </label>
+					<div class="col-10">
+						<input class="form-control" type="text" value="" id="phone" formControlName="phone">
+						<p class="alert alert-danger"
+						   role="alert"
+						   [hidden]="form.get('phone').valid || form.get('phone').pristine">
+							The Phone is required
+						</p>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label for="address" class="col-2 col-form-label">Address: </label>
+					<div class="col-10">
+						<input class="form-control" type="text" value="" id="address" formControlName="address">
+						<p class="alert alert-danger"
+						   role="alert"
+						   [hidden]="form.get('address').valid || form.get('address').pristine">
+							The Address is required
+						</p>
+					</div>
+				</div>
+			</form>
+		</div>
+		<form class="col-md-6">
+			<div class="form-horizontal">
+				<div class="form-group row">
+					<label class="col-3 form-control-label">Order</label>
+					<div class="col-9">
+						<strong class="form-control-static">2341</strong>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-3 form-control-label">Amount</label>
+					<div class="col-9">
+						<strong class="form-control-static">{{cart.amount | currency:'USD':true:'1.2-2'}}</strong>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-3 form-control-label">Quantity</label>
+					<div class="col-9">
+						<strong class="form-control-static">{{cart.count}}</strong>
+					</div>
+				</div>
+				<hr>
+				<div class="form-group row">
+					<div class="col-xs-12">
+						<p>Please read these terms carefully before using the online payment facility. Using the online
+							payment facility on this website indicates that you accept these terms. If you do not accept
+							these terms do not use this facility.</p>
+					</div>
+				</div>
+				<hr>
+				<div class="form-group row">
+					<div class="col-xs-3">
+						<div class="form-check">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" [(ngModel)]="term" name="term">
+								Accept
+							</label>
+						</div>
+					</div>
+					<div class="col-9">
+						<button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid || !term">Submit</button>
+						<button class="btn btn-secondary" [routerLink]="['/products']">Continue Shopping</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

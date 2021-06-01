@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="col-md-12 ">
+    <div style="padding-top:5px; padding-bottom: 31px;">
+      <div id="welcome-products" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li data-target="#welcome-products" *ngFor="let category of slideCategories; let first=first; let i=index"
+            attr.data-slide-to="{{i}}" [ngClass]="{active: first}"></li>
+        </ul>
+        <div class="carousel-inner">
+          <div class="carousel-inner" role="listbox">
+            <div *ngFor="let category of slideCategories; let first=first" class="carousel-item"
+              [ngClass]="{active: first}">
+              <db-category-slide [category]="category" (select)="selectCategory($event)">
+              </db-category-slide>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#welcome-products" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </a>
+          <a class="carousel-control-next" href="#welcome-products" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Products-list-->
+
+  <div class="card-columns">
+    <db-category-card *ngFor="let category of cardCategories" [category]="category" (select)="selectCategory($event)">
+    </db-category-card>
+  </div>

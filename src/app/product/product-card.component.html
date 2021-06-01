@@ -1,0 +1,24 @@
+<div class="card-deck-wrapper">
+    <div class="card-deck">
+        <div class="card" *ngFor="let product of products">
+            <h5 class="card-header text-xs-center">
+                {{product.title}}
+            </h5>
+            <img class="card-img-top center-block product-item" src="{{product.imageS}}" alt="{{product.title}}">
+            <div class="card-block text-xs-center" [ngClass]="setClasses(product)">
+                <h5 class="card-text">
+                    Price: ${{product.price}}
+                </h5>
+            </div>
+            <div class="card-footer text-xs-center">
+               <!--<a class="btn btn-primary" (click)="addToCart(product)">Buy Now</a>--> 
+                <a class="btn btn-secondary" [routerLink]="['/products', product.id]">
+                   View & Buy Now
+                </a>
+            </div>
+            <div class="card-block">
+                <p class="card-text">{{product.desc}}</p>
+            </div>
+        </div>
+    </div>
+</div>

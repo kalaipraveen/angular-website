@@ -1,0 +1,65 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-9">
+			<div *ngIf="cart.count">
+				<form>
+					<div class="table-responsive">
+						<table class="table table-sm table-striped table-bordered table-cart">
+							<tbody>
+							<tr>
+								<td class="font-weight-bold">Title</td>
+								<td class="font-weight-bold">Price</td>
+								<td class="font-weight-bold">Count</td>
+								<td class="font-weight-bold">Amount</td>
+								<td class="font-weight-bold">Delete</td>
+							</tr>
+							<tr *ngFor="let item of cart.items">
+								<td>{{item.product.title}}</td>
+								<td>{{item.product.price | currency:'USD':true:'1.2-2'}}</td>
+								<td>
+									<input type="number"
+									       name="{{item.product.id}}"
+									       [ngModel]="item.count"
+									       (ngModelChange)="item.count = update($event, item)"
+									       min="1">
+								</td>
+								<td>{{item.amount | currency:'USD':true:'1.2-2'}}</td>
+								<td>
+									<button class="btn btn-danger btn-block" (click)="deleteItem(item)">
+										<i class="fa fa-trash" aria-hidden="true"></i>
+									</button>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</form>
+			</div>
+			<div class="alert alert-info" role="alert" *ngIf="!cart.count">The cart is empty!</div>
+		</div>
+		<div class="col-lg-3" *ngIf="cart.count">
+			<div class="card-block">
+				<form>
+					<div class="form-group row bg-warning text-white">
+						<div class="col-6">
+							<p class="form-control-static h4">Total</p></div>
+						<div class="col-6">
+							<p class="form-control-static h4">{{cart.amount | currency:'USD':true:'1.2-2'}}</p>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md">
+							<a class="btn btn-primary btn-block" [routerLink]="['/checkout']">Checkout</a>
+							<a class="btn btn-secondary btn-block" [routerLink]="['/products']">Continue Shopping</a>
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md">
+							<button class="btn btn-danger btn-block" (click)="clearCart()">Clear Cart</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
