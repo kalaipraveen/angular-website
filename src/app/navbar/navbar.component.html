@@ -1,14 +1,16 @@
-<nav class="navbar navbar-expand-lg  navbar-dark " style="background-color: #666">
+<nav class="navbar navbar-expand-lg   shadow-lg p-3 mb-5 "
+  style="background-color: #fff; position:-webkit-sticky;position:sticky; top:0; z-index: 1;">
   <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="['/welcome']" [innerHTML]="appName"></a>
+    <a class="navbar-brand navbar-content" [routerLink]="['/welcome']" [innerHTML]="appName"></a>
     <button class="navbar-toggler hidden-sm-up " type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="nav navbar-nav mr-auto">
-        <li class="nav-item" *ngFor="let item of navItems">
-          <a class="nav-link" [routerLink]="[item.href]" [routerLinkActive]="['active']">{{item.label}}</a>
+    <div class="collapse navbar-collapse" >
+      <ul class="nav navbar-nav mr-auto" id="navbarNav">
+        <li class="nav-item " *ngFor="let item of navItems">
+          <a class="nav-link navbar-content" [routerLink]="[item.href]"
+            [routerLinkActive]="['active']">{{item.label}}</a>
         </li>
       </ul>
       <db-cart-menu></db-cart-menu>

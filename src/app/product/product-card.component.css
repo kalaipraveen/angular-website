@@ -1,0 +1,19 @@
+#product-card {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+#product-btn {
+    color: slategrey;
+    background: none;
+    border: 2px solid #a972cb;
+    --color: #a972cb;
+    --hover: #cb72aa;
+    color: var(--color);
+    transition: 0.025s;
+}
+
+#product-btn:hover, #product-btn:focus {
+    box-shadow: inset 0 0 0 2em var(--hover);
+    border-color: var(--hover);
+    color: #fff;
+}

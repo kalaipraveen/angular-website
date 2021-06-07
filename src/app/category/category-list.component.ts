@@ -11,7 +11,7 @@ export class CategoryListComponent {
         private categoryService: CategoryService) {
         this.categories = this.categoryService.getCategories();
     }
-
+    
     filterProducts(category: Category) {
         this.router.navigate(['/products'], {
             queryParams: { category: category.id }

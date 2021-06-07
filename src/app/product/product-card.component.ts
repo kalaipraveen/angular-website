@@ -5,7 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'db-product-card',
-    templateUrl: './product-card.component.html'
+    templateUrl: './product-card.component.html',
+    styleUrls:['./product-card.component.css']
 
 })
 @Injectable(

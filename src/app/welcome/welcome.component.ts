@@ -5,7 +5,8 @@ import { Category, CategoryService } from '../category/category.service'
 
 @Component({
     selector: 'db-welcome',
-    templateUrl: './welcome.component.html'
+    templateUrl: './welcome.component.html',
+    styleUrls:['./welcome.component.css']
 })
 @Injectable()
 export class WelcomeComponent {
