@@ -1,31 +1,32 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { ProductService, Product } from './product.service';
-import { CartService } from '../cart/cart.service'
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'db-product-grid',
   templateUrl: './product-grid.component.html',
-  providers: [CartService]
+  providers: [CartService],
 })
 @Injectable()
 export class ProductGridComponent {
-
   productsRow: any;
 
-  constructor(private productService: ProductService,
+  constructor(
+    private productService: ProductService,
     private cartService: CartService,
-    private route: ActivatedRoute) {
-    this.route
-      .queryParams
-      .subscribe(params => {
-        let category: string = params['category'];
-        let search: string = params['search'];
-        let products: Product[] = this.productService.getProducts(category, search);
-        this.productsRow = this.transformProducts(products);
-      });
-
+    private route: ActivatedRoute
+  ) {
+    this.route.queryParams.subscribe((params) => {
+      let category: string = params['category'];
+      let search: string = params['search'];
+      let products: Product[] = this.productService.getProducts(
+        category,
+        search
+      );
+      this.productsRow = this.transformProducts(products);
+    });
   }
   transformProducts(products: Product[]) {
     let index = 0;
@@ -50,6 +51,4 @@ export class ProductGridComponent {
     }
     return productsRow;
   }
-
 }
-

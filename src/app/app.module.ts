@@ -15,6 +15,8 @@ import {
 } from '@angular/common';
 import { routing } from './app.routes';
 import { CartModule } from './cart/cart.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, FooterComponent,
@@ -27,7 +29,9 @@ import { CartModule } from './cart/cart.module';
     routing,
     CartModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule,
+    FontAwesomeModule
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
