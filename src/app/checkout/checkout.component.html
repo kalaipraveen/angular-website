@@ -6,9 +6,8 @@
 					<label for="firstName" class="col-2 col-form-label">First Name:</label>
 					<div class="col-10">
 						<input class="form-control" type="text" value="" id="firstName" formControlName="firstName">
-						<p class="alert alert-danger"
-						   role="alert"
-						   [hidden]="form.get('firstName').valid || form.get('firstName').pristine">
+						<p class="alert alert-danger" role="alert"
+							[hidden]="form.get('firstName').valid || form.get('firstName').pristine">
 							The First Name is required
 						</p>
 					</div>
@@ -19,9 +18,8 @@
 						Last Name:</label>
 					<div class="col-10">
 						<input class="form-control" type="text" value="" id="lastName" formControlName="lastName">
-						<p class="alert alert-danger"
-						   role="alert"
-						   [hidden]="form.get('lastName').valid || form.get('lastName').pristine">
+						<p class="alert alert-danger" role="alert"
+							[hidden]="form.get('lastName').valid || form.get('lastName').pristine">
 							The Last Name is required
 						</p>
 					</div>
@@ -31,9 +29,8 @@
 					<label for="email" class="col-2 col-form-label">Email: </label>
 					<div class="col-10">
 						<input class="form-control" type="text" value="" id="email" formControlName="email">
-						<p class="alert alert-danger"
-						   role="alert"
-						   [hidden]="form.get('email').valid || form.get('email').pristine">
+						<p class="alert alert-danger" role="alert"
+							[hidden]="form.get('email').valid || form.get('email').pristine">
 							The Email is required
 						</p>
 					</div>
@@ -43,9 +40,8 @@
 					<label for="phone" class="col-2 col-form-label">Phone: </label>
 					<div class="col-10">
 						<input class="form-control" type="text" value="" id="phone" formControlName="phone">
-						<p class="alert alert-danger"
-						   role="alert"
-						   [hidden]="form.get('phone').valid || form.get('phone').pristine">
+						<p class="alert alert-danger" role="alert"
+							[hidden]="form.get('phone').valid || form.get('phone').pristine">
 							The Phone is required
 						</p>
 					</div>
@@ -55,9 +51,8 @@
 					<label for="address" class="col-2 col-form-label">Address: </label>
 					<div class="col-10">
 						<input class="form-control" type="text" value="" id="address" formControlName="address">
-						<p class="alert alert-danger"
-						   role="alert"
-						   [hidden]="form.get('address').valid || form.get('address').pristine">
+						<p class="alert alert-danger" role="alert"
+							[hidden]="form.get('address').valid || form.get('address').pristine">
 							The Address is required
 						</p>
 					</div>
@@ -103,7 +98,8 @@
 						</div>
 					</div>
 					<div class="col-9">
-						<button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid || !term">Submit</button>
+						<button class="btn btn-primary" (click)="onSubmit()"
+							[disabled]="!form.valid || !term">Submit</button>
 						<button class="btn btn-secondary" [routerLink]="['/products']">Continue Shopping</button>
 					</div>
 				</div>

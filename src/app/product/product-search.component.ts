@@ -2,23 +2,22 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'db-product-search',
-    templateUrl: './product-search.component.html'
+  selector: 'db-product-search',
+  templateUrl: './product-search.component.html',
 })
 export class ProductSearchComponent {
-    disabled: boolean = true;
+  disabled: boolean = true;
 
-    constructor(private router: Router) { }
-    searchProduct(value: string) {
-        this.router.navigate(['/products'],
-            { queryParams: { search: value } });
+  constructor(private router: Router) {}
+  searchProduct(value: string) {
+    this.router.navigate(['/products'], { queryParams: { search: value } });
+  }
+  searchChanged(value: string) {
+    // Update the disabled property depends on value
+    if (value) {
+      this.disabled = false;
+    } else {
+      this.disabled = true;
     }
-    searchChanged(value: string) {
-        // Update the disabled property depends on value
-        if (value) {
-       this.disabled = false;
-        } else {
-       this.disabled = true;
-        }
-       }
+  }
 }

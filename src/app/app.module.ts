@@ -9,18 +9,20 @@ import { ProductModule } from './product/product.module';
 import { FooterComponent } from '../app/footer/footer.componet';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { CheckoutViewComponent } from './checkout/checkout.component';
-
-import {
-  LocationStrategy, HashLocationStrategy
-} from '@angular/common';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { routing } from './app.routes';
 import { CartModule } from './cart/cart.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent,
-    WelcomeComponent, CheckoutViewComponent,],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    FooterComponent,
+    WelcomeComponent,
+    CheckoutViewComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,9 +33,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
